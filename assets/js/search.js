@@ -60,7 +60,7 @@ function displaySearchResults(results, container) {
 
     results.forEach(result => {
         const col = document.createElement('div');
-        col.classList.add('col-md-4', 'col-sm-6');
+        col.classList.add('col-md-4', 'col-sm-3');
         col.innerHTML = `
             <div class="card h-100">
                 <img src="${result.image || 'assets/images/default.jpg'}" class="card-img-top" alt="${result.name || result.model}" style="height: 200px; object-fit: cover;">
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayAllCars() {
         const carData = JSON.parse(localStorage.getItem('carData')) || [];
         if (carData.length > 0) {
-            displayPaginatedCars(carData, 'car-models', 6, 1); // Hiển thị với phân trang
+            displayPaginatedCars(carData, 'car-models', 3, 1); // Hiển thị với phân trang
         } else {
             carModelsContainer.innerHTML = '<p>Không có dữ liệu để hiển thị.</p>';
         }

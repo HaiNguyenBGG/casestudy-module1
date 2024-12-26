@@ -69,7 +69,7 @@ function displayCarModels(carData, categoryIndex, modelsContainerId) {
 
     selectedCar.variants.forEach((variant) => {
         const col = document.createElement('div');
-        col.classList.add('col-md-4', 'col-sm-6');
+        col.classList.add('col-md-4', 'col-sm-3');
 
         col.innerHTML = `
             <div class="card h-100">

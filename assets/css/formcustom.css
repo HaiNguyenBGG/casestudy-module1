@@ -1,0 +1,29 @@
+/* Đổi màu chữ cho tiêu đề của modal */
+#customerInfoModal .modal-title {
+    color: #007bff; /* Màu xanh dương */
+    font-weight: bold;
+}
+
+/* Đổi màu cho nhãn (label) trong form */
+#customerInfoModal .form-label {
+    color: #000000;
+    font-size: large;
+    font-weight: bold;
+}
+
+/* Đổi màu placeholder trong các ô input */
+#customerInfoModal input::placeholder {
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Đổi màu cho nút Gửi thông tin */
+#customerInfoModal .btn-primary {
+    background-color: #17a2b8; /* Màu xanh ngọc */
+    border-color: #17a2b8;
+}
+
+#customerInfoModal .btn-primary:hover {
+    background-color: #138496; /* Màu xanh đậm hơn khi hover */
+    border-color: #117a8b;
+}

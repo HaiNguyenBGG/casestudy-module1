@@ -22,7 +22,7 @@ function loadAndDisplayData() {
     const carData = JSON.parse(localStorage.getItem('carData')) || [];
     const container = document.getElementById('car-models');
     if (carData.length > 0) {
-        displayPaginatedCars(carData, 'car-models', 6, 1); // Phân trang
+        displayPaginatedCars(carData, 'car-models', 3, 1); // Phân trang
     } else {
         container.innerHTML = '<p>Không có dữ liệu để hiển thị.</p>';
     }
