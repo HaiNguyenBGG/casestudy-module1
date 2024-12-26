@@ -1,0 +1,37 @@
+.floating-icons {
+    position: fixed;
+    right: 20px;
+    bottom: 0%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 9999;
+}
+
+.floating-icons a {
+    display: block;
+    width: 50px;
+    /* Kích thước icon */
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    /* Bo tròn icon */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Hiệu ứng đổ bóng */
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.floating-icons a:hover {
+    transform: scale(1.1);
+    /* Phóng to khi hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.floating-icons img {
+    width: 100%;
+    /* Hình ảnh vừa với khung */
+    height: 100%;
+    object-fit: cover;
+}

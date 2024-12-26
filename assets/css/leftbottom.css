@@ -1,0 +1,82 @@
+/* Tổng thể Sidebar */
+.sidebar {
+    background-color: #f8f9fa;
+    /* Màu nền sáng */
+    padding: 20px;
+    /* Khoảng cách bên trong */
+    border-right: 1px solid #ddd;
+    /* Đường viền bên phải */
+    height: 100%;
+    /* Chiều cao full màn hình */
+    overflow-y: auto;
+    /* Cuộn nếu nội dung quá dài */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    /* Đổ bóng nhẹ */
+}
+
+/* Tiêu đề Sidebar */
+.sidebar h5 {
+    font-size: 1.2rem;
+    /* Kích thước chữ */
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    /* Màu chữ tối */
+}
+
+/* Danh sách sản phẩm */
+.list-group {
+    margin-bottom: 20px;
+    /* Khoảng cách giữa các danh sách */
+}
+
+/* Danh sách các mục */
+.list-group-item {
+    background-color: white;
+    /* Màu nền danh mục */
+    border: 1px solid #ddd;
+    /* Đường viền xung quanh */
+    border-radius: 4px;
+    /* Bo góc danh mục */
+    margin-bottom: 10px;
+    /* Khoảng cách giữa các mục */
+    padding: 10px 15px;
+    /* Khoảng cách bên trong */
+    font-size: 1rem;
+    /* Kích thước chữ */
+    color: #333;
+    /* Màu chữ */
+    cursor: pointer;
+    /* Biểu tượng con trỏ tay */
+    transition: all 0.3s ease;
+    /* Hiệu ứng chuyển đổi */
+}
+
+/* Hover hiệu ứng cho danh mục */
+.list-group-item:hover {
+    background-color: #007bff;
+    /* Đổi màu nền khi hover */
+    color: #fff;
+    /* Đổi màu chữ khi hover */
+    border-color: #007bff;
+    /* Đổi màu viền khi hover */
+}
+
+/* Responsive Sidebar */
+@media (max-width: 768px) {
+    .sidebar {
+        height: auto;
+        /* Chiều cao tự động trên màn hình nhỏ */
+        border-right: none;
+        /* Loại bỏ viền phải */
+        border-bottom: 1px solid #ddd;
+        /* Thêm viền dưới */
+        margin-bottom: 20px;
+        /* Khoảng cách dưới */
+    }
+
+    .list-group-item {
+        font-size: 0.9rem;
+        /* Giảm kích thước chữ */
+    }
+}

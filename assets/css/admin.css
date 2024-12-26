@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.table {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn {
+    margin: 0 5px;
+}
+
+#add-product-btn {
+    margin-bottom: 20px;
+}
+
+.modal-header {
+    background-color: #007bff;
+    color: white;
+}
+
+.modal-footer {
+    justify-content: flex-end;
+}
+
+.status-select {
+    width: 120px;
+    text-align: center;
+}
+
+.status-select option[value="advising"] {
+    background-color: yellow;
+    color: black;
+}
+
+.status-select option[value="sold"] {
+    background-color: green;
+    color: white;
+}
+
+.status-select option[value="rejected"] {
+    background-color: red;
+    color: white;
+}

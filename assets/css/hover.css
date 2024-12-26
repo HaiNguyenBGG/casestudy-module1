@@ -1,0 +1,88 @@
+/* Logo hover */
+.header-top .nameweb {
+    font-size: 24px;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+    /* Thêm hiệu ứng chuyển đổi mượt */
+}
+
+.header-top .nameweb:hover {
+    color: #ff0000;
+    /* Thay đổi màu chữ khi hover */
+    transform: scale(1.1);
+    /* Tăng kích thước nhẹ */
+}
+
+/* Thanh tìm kiếm hover */
+.header-top .search-bar input {
+    width: 100%;
+    /* Đầy chiều rộng */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    /* Hiệu ứng mượt */
+}
+
+.header-top .search-bar input:hover {
+    border-color: #007bff;
+    /* Đổi màu viền */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    /* Thêm ánh sáng xung quanh */
+}
+
+.header-top .search-bar input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.8);
+    /* Ánh sáng khi focus */
+}
+
+.search-bar .logosearch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background-color: #ffffff;
+    /* Màu nền nút */
+    border-radius: 50%;
+    /* Nút tròn */
+    cursor: pointer;
+    /* Con trỏ chuột dạng tay */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-bar .logosearch img {
+    width: 45px;
+    /* Kích thước hình ảnh */
+    height: 45px;
+}
+
+.search-bar .logosearch:hover {
+    background-color: #ffffff;
+    /* Đổi màu nền khi hover */
+    transform: scale(1.05);
+    /* Tăng nhẹ kích thước khi hover */
+}
+
+
+/* Nút liên kết hover */
+.header-top .actions a {
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #000;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Hiệu ứng chuyển đổi mượt */
+}
+
+.header-top .actions a:hover {
+    background-color: #007bff;
+    /* Đổi nền thành màu xanh */
+    color: #fff;
+    /* Chữ thành trắng */
+    border-color: #007bff;
+    /* Viền cũng đổi màu */
+}
