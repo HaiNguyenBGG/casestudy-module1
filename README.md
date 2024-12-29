@@ -61,7 +61,7 @@ Chúng tôi hy vọng bạn có trải nghiệm tuyệt vời khi sử dụng tr
 
 ----------
 
-# Hướng Dẫn Sử Dụng Trang Quản Lý Sản Phẩm - Admin
+# Hướng Dẫn Sử Dụng Trang Quản Lý - Admin
 
 Trang quản lý sản phẩm là công cụ dành cho admin để quản lý danh sách khách hàng và sản phẩm một cách dễ dàng. Dưới đây là hướng dẫn chi tiết:
 
