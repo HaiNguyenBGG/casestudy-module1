@@ -13,6 +13,7 @@ Trang web được thiết kế trực quan và dễ sử dụng, mang đến tr
   - Họ tên.
   - Địa chỉ.
   - Số điện thoại.
+  - Chọn dòng xe tham khảo.
 - **Hoàn tất**:
   - Nhấp vào nút **"Gửi thông tin"**.
   - Nhân viên hỗ trợ sẽ liên hệ với bạn trong thời gian sớm nhất.
