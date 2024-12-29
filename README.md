@@ -58,3 +58,99 @@ Nếu bạn cần hỗ trợ thêm, vui lòng liên hệ qua các kênh sau:
 ---
 
 Chúng tôi hy vọng bạn có trải nghiệm tuyệt vời khi sử dụng trang web! 🚗
+
+----------
+
+# Hướng Dẫn Sử Dụng Trang Quản Lý Sản Phẩm - Admin
+
+Trang quản lý sản phẩm là công cụ dành cho admin để quản lý danh sách khách hàng và sản phẩm một cách dễ dàng. Dưới đây là hướng dẫn chi tiết:
+
+---
+
+## 1. Cấu Trúc Giao Diện
+- **Header**: Tiêu đề "Quản Lý".
+- **Nút điều hướng**:
+  - **"Danh Sách Khách Hàng"**: Hiển thị danh sách khách hàng.
+  - **"Danh Sách Sản Phẩm"**: Hiển thị danh sách sản phẩm.
+- **Modal**: Popup để chỉnh sửa hoặc thêm khách hàng/sản phẩm.
+
+---
+
+## 2. Quản Lý Danh Sách Khách Hàng
+### 2.1. Xem Danh Sách
+- Nhấp vào nút **"Danh Sách Khách Hàng"**.
+- Một bảng hiển thị danh sách các khách hàng với các cột:
+  - **#**: Số thứ tự.
+  - **Họ Tên**.
+  - **Địa Chỉ**.
+  - **Số Điện Thoại**.
+  - **Sản Phẩm**.
+  - **Tình Trạng**.
+  - **Ngày đặt xe**.
+
+### 2.2. Chỉnh Sửa Khách Hàng
+1. Nhấp vào **nút chỉnh sửa** bên cạnh khách hàng trong bảng.
+2. Modal chỉnh sửa sẽ xuất hiện với các trường:
+   - **Họ Tên**.
+   - **Địa Chỉ**.
+   - **Số Điện Thoại**.
+   - **Sản Phẩm** (chỉ đọc).
+   - **Tình Trạng** (lựa chọn trạng thái: "Đã bán", "Đang tư vấn", "Mua xe khác").
+   - **Ngày Mua**.
+3. Sau khi chỉnh sửa, nhấp **"Lưu"** để cập nhật.
+
+---
+
+## 3. Quản Lý Danh Sách Sản Phẩm
+### 3.1. Xem Danh Sách
+- Nhấp vào nút **"Danh Sách Sản Phẩm"**.
+- Một bảng hiển thị danh sách sản phẩm với các cột:
+  - **Số thứ tự**.
+  - **Dòng**.
+  - **Loại**.
+  - **Năm**.
+  - **Phiên Bản**.
+  - **Động Cơ**.
+  - **Hộp Số**.
+  - **Giá**.
+  - **Ảnh**.
+  - **Hành Động**.
+
+### 3.2. Thêm Sản Phẩm
+1. Nhấp nút **"Thêm Sản Phẩm"** ở góc trên bên phải.
+2. Modal thêm sản phẩm sẽ xuất hiện, điền các thông tin:
+   - **Dòng**.
+   - **Loại**.
+   - **Năm**.
+   - **Tên Phiên Bản**.
+   - **Ảnh** (kèm xem trước).
+   - **Động Cơ**.
+   - **Hộp Số**.
+   - **Giá**.
+3. Nhấp **"Thêm"** để lưu sản phẩm mới.
+
+### 3.3. Chỉnh Sửa Sản Phẩm
+1. Nhấp vào **nút chỉnh sửa** bên cạnh sản phẩm trong bảng.
+2. Modal chỉnh sửa sản phẩm sẽ xuất hiện, chỉnh sửa các trường tương tự như khi thêm sản phẩm.
+3. Nhấp **"Lưu"** để cập nhật sản phẩm.
+
+---
+
+## 4. Các Thành Phần Chính Trong File HTML
+- **Bootstrap**: Sử dụng thư viện CSS/JS để thiết kế giao diện.
+- **Modals**: Hỗ trợ chỉnh sửa hoặc thêm mới khách hàng/sản phẩm.
+- **Bảng**: Hiển thị danh sách khách hàng và sản phẩm.
+- **Scripts**:
+  - `assets/js/showAdmin.js`: Quản lý hiển thị chức năng admin.
+  - `assets/js/showCustom.js`: Quản lý dữ liệu hiển thị của khách hàng.
+
+---
+
+## 5. Yêu Cầu Hệ Thống
+- **Trình duyệt**: Phiên bản mới nhất của Chrome, Firefox, Edge hoặc Safari.
+- **Kết nối mạng**: Cần thiết nếu sử dụng các liên kết Bootstrap CDN.
+- **Tệp JS liên quan**: Các tệp `showAdmin.js` và `showCustom.js` cần được cập nhật đầy đủ.
+
+---
+
+Chúc bạn quản lý hệ thống hiệu quả và dễ dàng!
