@@ -46,13 +46,6 @@
                 <img src="assets/images/search.jpg" alt="Tìm kiếm">
             </div>
         </div>
-        <div class="actions">
-            <select id="province-selector" class="form-select">
-                <option value="Hà Nội">Hà Nội</option>
-                <option value="Đà Nẵng">Đà Nẵng</option>
-                <option value="Hồ Chí Minh">Hồ Chí Minh</option>
-            </select>
-        </div>
     </header>
 
     <!-- Main Content -->
@@ -80,15 +73,15 @@
             <div class="row main-content-bottom mt-4">
                 <!-- Sidebar -->
                 <aside class="col-md-3 sidebar">
-                    <h5>Danh mục sản phẩm xe KIA</h5>
+                    <h4>Danh mục sản phẩm xe KIA</h4>
                     <ul class="list-group" id="car-category-list"></ul>
-                    <h5>Top xe yêu thích</h5>
-                    <ul class="list-group" id="top-cars-list"></ul>
+                    <!-- <h5>Top xe yêu thích</h5>
+                    <ul class="list-group" id="top-cars-list"></ul> -->
                 </aside>
                 <!-- Product Display -->
                 <section class="col-md-9 car-models">
                     <h5>Các dòng xe và phiên bản</h5>
-                    <div id="car-models" class="row"></div>
+                    <div id="car-models" class="row" data-bs-toggle="tooltip"></div>
                 </section>
             </div>
         </div>
@@ -128,7 +121,7 @@
                         <img src="assets/images/icons/instagram.jpg" alt="Instagram" width="24">
                     </a>
                     <div class="audio-player mt-2">
-                        <audio controls autoplay loop>
+                        <audio controls loop>
                             <source src="assets/audio/lastChristmas.mp3" type="audio/mpeg">
                         </audio>
                     </div>
@@ -171,22 +164,20 @@
             </div>
         </div>
     </div>
-
+    <canvas id="snowCanvas"></canvas>
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/js/data.js"></script>
-    <script src="assets/js/local.js"></script>
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/forminfo.js"></script>
+    <script src="assets/js/setData.js"></script>
+    <script src="assets/js/upLocal.js"></script>
+    <script src="assets/js/connect.js"></script>
+    <script src="assets/js/sendForminfo.js"></script>
     <script src="assets/js/search.js"></script>
-    <script src="assets/js/product.js"></script>
+    <script src="assets/js/showProduct.js"></script>
     <script src="assets/js/swiper.js"></script>
-    <script src="assets/js/appleft.js"></script>
-    <script src="assets/js/city.js"></script>
-    <script src="assets/js/buy.js"></script>
+    <script src="assets/js/clickLeft.js"></script>
     <script src="assets/js/snow.js"></script>
-
+    <script src="assets/js/tooltip.js"></script>
 </body>
 
 </html>

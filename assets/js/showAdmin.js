@@ -1,5 +1,3 @@
-// Quản lý sản phẩm và khách hàng trong admin.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const productTableBody = document.getElementById('product-table-body');
     const customerTableBody = document.getElementById('customer-table-body');
@@ -95,6 +93,9 @@ document.addEventListener('DOMContentLoaded', () => {
             addProductForm.reset();
             addPreviewImage.style.display = 'none';
             bootstrap.Modal.getInstance(document.getElementById('addProductModal')).hide();
+
+            // Hiển thị thông báo thêm thành công
+            alert('Sản phẩm đã được thêm thành công!');
         };
         reader.readAsDataURL(imageFile);
     });
@@ -151,6 +152,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const carIndex = e.target.dataset.carIndex;
                 const variantIndex = e.target.dataset.variantIndex;
 
+                // Hiển thị hộp thoại xác nhận
+                const confirmDelete = confirm('Bạn có chắc muốn xóa sản phẩm này?');
+                if (!confirmDelete) {
+                    return; // Nếu người dùng nhấn "Hủy", không thực hiện xóa
+                }
+
+                // Thực hiện xóa sản phẩm
                 productData[carIndex].variants.splice(variantIndex, 1);
 
                 if (productData[carIndex].variants.length === 0) {
@@ -159,6 +167,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 saveToLocalStorage('carData', productData);
                 displayProducts();
+
+                // Thông báo sản phẩm đã được xóa
+                alert('Sản phẩm đã được xóa thành công!');
             });
         });
 

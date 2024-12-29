@@ -15,7 +15,7 @@ function loadFromLocalStorage() {
 }
 
 // Hàm hiển thị xe theo phân trang
-function displayPaginatedCars(carData, modelsContainerId, itemsPerPage = 3, currentPage = 1) {
+function displayPaginatedCars(carData, modelsContainerId, itemsPerPage = 6, currentPage = 1) {
     const carModelsContainer = document.getElementById(modelsContainerId);
     if (!carData || !Array.isArray(carData)) {
         console.error('Dữ liệu carData không hợp lệ.');
@@ -27,7 +27,7 @@ function displayPaginatedCars(carData, modelsContainerId, itemsPerPage = 3, curr
 
     // Tạo container "row" để sắp xếp các card theo hàng ngang
     const row = document.createElement('div');
-    row.classList.add('row', 'gy-3');
+    row.classList.add('row', 'gy-6');
 
     // Tính toán các chỉ số để phân trang
     const allVariants = carData.flatMap(car => car.variants.map(variant => ({
@@ -50,7 +50,7 @@ function displayPaginatedCars(carData, modelsContainerId, itemsPerPage = 3, curr
     // Hiển thị các item của trang hiện tại
     itemsToDisplay.forEach(variant => {
         const col = document.createElement('div');
-        col.classList.add('col-md-4', 'col-sm-3');
+        col.classList.add('col-md-4', 'col-sm-6');
 
         col.innerHTML = `
             <div class="card h-100">
@@ -58,9 +58,6 @@ function displayPaginatedCars(carData, modelsContainerId, itemsPerPage = 3, curr
                 <div class="card-body">
                     <h5 class="card-title">${variant.model} - ${variant.name}</h5>
                     <p class="card-text">Loại xe: ${variant.type}</p>
-                    <p class="card-text">Động cơ: ${variant.engine}</p>
-                    <p class="card-text">Hộp số: ${variant.transmission}</p>
-                    <p class="card-text">Màu sắc: ${variant.colorOptions.join(', ')}</p>
                     <p class="card-text"><strong>Giá:</strong> ${formatPrice(variant.price)}</p>
                 </div>
             </div>
@@ -70,32 +67,65 @@ function displayPaginatedCars(carData, modelsContainerId, itemsPerPage = 3, curr
 
     carModelsContainer.appendChild(row);
 
-    // Thêm các nút phân trang
+    // Tạo nút phân trang
     const pagination = document.createElement('div');
     pagination.classList.add('pagination', 'mt-4', 'd-flex', 'justify-content-center');
 
-    for (let i = 1; i <= totalPages; i++) {
+    // Hàm tạo nút phân trang
+    const createPageButton = (page, text = page) => {
         const pageButton = document.createElement('button');
         pageButton.classList.add('btn', 'btn-outline-primary', 'mx-1');
-        pageButton.textContent = i;
-        pageButton.disabled = i === currentPage;
+        pageButton.textContent = text;
+        if (page === currentPage) {
+            pageButton.classList.add('active');
+            pageButton.disabled = true;
+        }
         pageButton.addEventListener('click', () => {
-            displayPaginatedCars(carData, modelsContainerId, itemsPerPage, i);
+            displayPaginatedCars(carData, modelsContainerId, itemsPerPage, page);
         });
-        pagination.appendChild(pageButton);
+        return pageButton;
+    };
+
+    // Nút "Trước"
+    if (currentPage > 1) {
+        pagination.appendChild(createPageButton(currentPage - 1, '‹'));
+    }
+
+    // Nút đầu tiên
+    if (currentPage > 2) {
+        pagination.appendChild(createPageButton(1));
+    }
+
+    // Dấu "..." nếu cần
+    if (currentPage > 3) {
+        const dots = document.createElement('span');
+        dots.textContent = '...';
+        dots.classList.add('mx-1');
+        pagination.appendChild(dots);
+    }
+
+    // Các nút xung quanh trang hiện tại
+    for (let i = Math.max(1, currentPage - 1); i <= Math.min(totalPages, currentPage + 1); i++) {
+        pagination.appendChild(createPageButton(i));
+    }
+
+    // Dấu "..." nếu cần
+    if (currentPage < totalPages - 2) {
+        const dots = document.createElement('span');
+        dots.textContent = '...';
+        dots.classList.add('mx-1');
+        pagination.appendChild(dots);
+    }
+
+    // Nút cuối cùng
+    if (currentPage < totalPages - 1) {
+        pagination.appendChild(createPageButton(totalPages));
+    }
+
+    // Nút "Tiếp"
+    if (currentPage < totalPages) {
+        pagination.appendChild(createPageButton(currentPage + 1, '›'));
     }
 
     carModelsContainer.appendChild(pagination);
 }
-
-// Lắng nghe sự kiện DOMContentLoaded
-document.addEventListener('DOMContentLoaded', () => {
-    const carData = loadFromLocalStorage(); // Lấy dữ liệu từ localStorage
-    const modelsContainerId = 'car-models';
-
-    if (carData.length > 0) {
-        displayPaginatedCars(carData, modelsContainerId, 3, 1); // Hiển thị dữ liệu mới nhất
-    } else {
-        console.error('Không có dữ liệu xe để hiển thị.');
-    }
-});
