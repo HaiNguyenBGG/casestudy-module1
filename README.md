@@ -80,7 +80,7 @@ Trang quản lý sản phẩm là công cụ dành cho admin để quản lý da
 ### 2.1. Xem Danh Sách
 - Nhấp vào nút **"Danh Sách Khách Hàng"**.
 - Một bảng hiển thị danh sách các khách hàng với các cột:
-  - **#**: Số thứ tự.
+  - **Số Thứ Tự**:
   - **Họ Tên**.
   - **Địa Chỉ**.
   - **Số Điện Thoại**.

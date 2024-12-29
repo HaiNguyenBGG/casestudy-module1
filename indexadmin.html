@@ -29,16 +29,19 @@
         <div class="collapse" id="customerList">
             <div class="card card-body">
                 <h2 class="text-center">Danh Sách Khách Hàng</h2>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="search-customer" placeholder="Tìm kiếm khách hàng...">
+                </div>
                 <table class="table table-striped mt-4">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>Số Thứ Tự</th>
                             <th>Họ Tên</th>
                             <th>Địa Chỉ</th>
                             <th>Số Điện Thoại</th>
                             <th>Sản Phẩm</th>
                             <th>Tình Trạng</th>
-                            <th>Ngày đặt xe</th>
+                            <th>Ngày Đặt Xe</th>
                         </tr>
                     </thead>
                     <tbody id="customer-table-body"></tbody>
@@ -81,7 +84,7 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="edit-customer-date" class="form-label">Ngày Mua</label>
+                                <label for="edit-customer-date" class="form-label">Ngày Đặt Xe</label>
                                 <input type="date" class="form-control" id="edit-customer-date" required>
                             </div>
                         </form>
@@ -103,10 +106,13 @@
                     <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addProductModal">Thêm Sản
                         Phẩm</button>
                 </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="search-product" placeholder="Tìm kiếm sản phẩm...">
+                </div>
                 <table class="table table-striped mt-4">
                     <thead>
                         <tr>
-                            <th>Số thứ tự</th>
+                            <th>Số Thứ Tự</th>
                             <th>Dòng</th>
                             <th>Loại</th>
                             <th>Năm</th>

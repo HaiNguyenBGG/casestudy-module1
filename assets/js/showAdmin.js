@@ -199,3 +199,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hiển thị sản phẩm và khách hàng khi tải trang
     displayProducts();
 });
+
+//Search
+document.getElementById("search-product").addEventListener("input", function () {
+    const searchValue = this.value.toLowerCase();
+    const rows = document.querySelectorAll("#product-table-body tr");
+    rows.forEach(row => {
+        const rowText = row.textContent.toLowerCase();
+        row.style.display = rowText.includes(searchValue) ? "" : "none";
+    });
+});
