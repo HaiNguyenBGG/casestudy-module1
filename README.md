@@ -97,7 +97,7 @@ Trang quản lý sản phẩm là công cụ dành cho admin để quản lý da
    - **Số Điện Thoại**.
    - **Sản Phẩm** (chỉ đọc).
    - **Tình Trạng** (lựa chọn trạng thái: "Đã bán", "Đang tư vấn", "Mua xe khác").
-   - **Ngày Mua**.
+   - **Ngày Đặt Xe**.
 3. Sau khi chỉnh sửa, nhấp **"Lưu"** để cập nhật.
 
 ---
@@ -107,7 +107,7 @@ Trang quản lý sản phẩm là công cụ dành cho admin để quản lý da
 - Nhấp vào nút **"Danh Sách Sản Phẩm"**.
 - Một bảng hiển thị danh sách sản phẩm với các cột:
   - **Số thứ tự**.
-  - **Dòng**.
+  - **Dòng Xe**.
   - **Loại**.
   - **Năm**.
   - **Phiên Bản**.
@@ -120,7 +120,7 @@ Trang quản lý sản phẩm là công cụ dành cho admin để quản lý da
 ### 3.2. Thêm Sản Phẩm
 1. Nhấp nút **"Thêm Sản Phẩm"** ở góc trên bên phải.
 2. Modal thêm sản phẩm sẽ xuất hiện, điền các thông tin:
-   - **Dòng**.
+   - **Dòng Xe**.
    - **Loại**.
    - **Năm**.
    - **Tên Phiên Bản**.
