@@ -6,64 +6,69 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-// Mảng lưu các hạt tuyết
-const snowflakes = [];
-
-// Tạo hạt tuyết
-function createSnowflakes() {
-    const count = 100; // Số lượng hạt tuyết
-    for (let i = 0; i < count; i++) {
-        snowflakes.push({
-            x: Math.random() * canvas.width, // Vị trí ngang ngẫu nhiên
-            y: Math.random() * canvas.height, // Vị trí dọc ngẫu nhiên
-            radius: Math.random() * 4 + 1, // Kích thước ngẫu nhiên
-            speed: Math.random() * 2 + 0.5, // Tốc độ rơi
-            drift: Math.random() * 1 - 0.5 // Độ trôi ngang
+// Hiệu ứng pháo hoa
+function createFirework(x, y) {
+    const particles = [];
+    const particleCount = 100;
+    for (let i = 0; i < particleCount; i++) {
+        particles.push({
+            x: x,
+            y: y,
+            angle: Math.random() * Math.PI * 2,
+            speed: Math.random() * 4 + 1,
+            radius: Math.random() * 2 + 1,
+            alpha: 1
         });
     }
+
+    function drawFirework() {
+        particles.forEach(particle => {
+            ctx.beginPath();
+            ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${particle.alpha})`;
+            ctx.fill();
+        });
+    }
+
+    function updateFirework() {
+        particles.forEach(particle => {
+            particle.x += Math.cos(particle.angle) * particle.speed;
+            particle.y += Math.sin(particle.angle) * particle.speed;
+            particle.alpha -= 0.02;
+        });
+    }
+
+    function animateFirework() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawFirework();
+        updateFirework();
+        requestAnimationFrame(() => {
+            if (particles.some(particle => particle.alpha > 0)) {
+                animateFirework();
+            }
+        });
+    }
+
+    animateFirework();
 }
 
-// Vẽ hạt tuyết
-function drawSnowflakes() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = 'white';
-    ctx.beginPath();
-    snowflakes.forEach(snowflake => {
-        ctx.moveTo(snowflake.x, snowflake.y);
-        ctx.arc(snowflake.x, snowflake.y, snowflake.radius, 0, Math.PI * 2);
-    });
-    ctx.fill();
+// Hiển thị pháo hoa liên tục
+function continuousFireworks() {
+    setInterval(() => {
+        createFirework(
+            Math.random() * canvas.width,
+            Math.random() * canvas.height / 2
+        );
+    }, 500);
 }
 
-// Cập nhật vị trí hạt tuyết
-function updateSnowflakes() {
-    snowflakes.forEach(snowflake => {
-        snowflake.y += snowflake.speed; // Rơi xuống
-        snowflake.x += snowflake.drift; // Trôi ngang
-
-        // Reset vị trí khi hạt tuyết vượt qua màn hình
-        if (snowflake.y > canvas.height) {
-            snowflake.y = 0;
-            snowflake.x = Math.random() * canvas.width;
-        }
-    });
-}
-
-// Vòng lặp hoạt hình
-function animateSnowfall() {
-    drawSnowflakes();
-    updateSnowflakes();
-    requestAnimationFrame(animateSnowfall);
-}
-
-// Khởi tạo hiệu ứng tuyết rơi
-createSnowflakes();
-animateSnowfall();
+// Bắt đầu hiệu ứng pháo hoa
+window.addEventListener('load', () => {
+    continuousFireworks();
+});
 
 // Xử lý khi thay đổi kích thước màn hình
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    snowflakes.length = 0; // Xóa hạt tuyết cũ
-    createSnowflakes();
 });

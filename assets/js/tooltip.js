@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     // Lấy tất cả các thẻ card hiện tại
     const cards = document.querySelectorAll(".card");

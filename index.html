@@ -121,8 +121,8 @@
                         <img src="assets/images/icons/instagram.jpg" alt="Instagram" width="24">
                     </a>
                     <div class="audio-player mt-2">
-                        <audio controls loop>
-                            <source src="assets/audio/lastChristmas.mp3" type="audio/mpeg">
+                        <audio controls autoplay loop>
+                            <source src="assets/audio/tet.mp3" type="audio/mpeg">
                         </audio>
                     </div>
                 </div>
@@ -191,5 +191,18 @@
     <script src="assets/js/snow.js"></script>
     <script src="assets/js/tooltip.js"></script>
 </body>
+<script>
+function checkLocalStorageUsage() {
+    let total = 0;
+    for (let key in localStorage) {
+        if (localStorage.hasOwnProperty(key)) {
+            total += ((localStorage[key].length + key.length) * 2); // Tính toán dung lượng (ký tự Unicode 2 byte)
+        }
+    }
+    console.log(`Dung lượng đã sử dụng: ${(total / 1024).toFixed(2)} KB`);
+    console.log("Dung lượng tối đa (thông thường): 5 MB (tuỳ thuộc vào trình duyệt)");
+}
 
+checkLocalStorageUsage();
+</script>
 </html>

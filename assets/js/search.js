@@ -23,7 +23,6 @@ function searchCars(carData, keyword) {
 function fuzzyMatch(text, keyword) {
     const normalizedText = text.replace(/\s+/g, '').toLowerCase();
     const normalizedKeyword = keyword.replace(/\s+/g, '').toLowerCase();
-
     let i = 0;
     for (let j = 0; j < normalizedText.length && i < normalizedKeyword.length; j++) {
         if (normalizedText[j] === normalizedKeyword[i]) {
@@ -111,6 +110,16 @@ function displayPaginatedCars(carData, modelsContainerId, itemsPerPage = 6, curr
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     const carModelsContainer = document.getElementById('car-models');
+    const searchButton = document.getElementById('search-button'); // Thêm nút tìm kiếm nếu cần
+    const logoSearch = document.querySelector('.logosearch'); // Thêm logo tìm kiếm
+
+    // Cuộn xuống phần danh sách sản phẩm
+    function scrollToCarModels() {
+        const carModelsSection = document.querySelector('.car-models');
+        if (carModelsSection) {
+            carModelsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
 
     // Hiển thị toàn bộ sản phẩm khi không tìm kiếm
     function displayAllCars() {
@@ -123,8 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Sự kiện tìm kiếm
-    searchInput.addEventListener('input', (event) => {
-        const keyword = event.target.value.trim();
+    function handleSearch() {
+        const keyword = searchInput.value.trim();
         const carData = JSON.parse(localStorage.getItem('carData')) || [];
         if (keyword) {
             const searchResults = searchCars(carData, keyword);
@@ -136,7 +145,26 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             displayAllCars(); // Hiển thị lại tất cả nếu không có từ khóa
         }
+        scrollToCarModels(); // Cuộn xuống danh sách sản phẩm
+    }
+
+    // Lắng nghe sự kiện nhập Enter
+    searchInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Ngăn chặn hành vi mặc định
+            handleSearch();
+        }
     });
+
+    // Lắng nghe sự kiện khi nhấn nút tìm kiếm
+    if (searchButton) {
+        searchButton.addEventListener('click', handleSearch);
+    }
+
+    // Lắng nghe sự kiện khi nhấn logo tìm kiếm
+    if (logoSearch) {
+        logoSearch.addEventListener('click', handleSearch);
+    }
 
     // Hiển thị tất cả sản phẩm khi tải trang
     displayAllCars();
