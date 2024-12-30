@@ -21,9 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
         customerTableBody.innerHTML = '';
 
         customers.forEach((customer, index) => {
-            const statusIcon = customer.status === "Đã bán"
+            const status = customer.status || "Đang tư vấn";
+            const statusIcon = status === "Đã bán"
                 ? "✔️"
-                : customer.status === "Đang tư vấn"
+                : status === "Đang tư vấn"
                     ? "🟡"
                     : "❌";
 
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${customer.address}</td>
                 <td>${customer.phone}</td>
                 <td>${customer.product || 'Không xác định'}</td>
-                <td>${statusIcon} ${customer.status || ''}</td>
+                <td>${statusIcon} ${customer.status || 'Đang tư vấn'}</td>
                 <td>${formatDate(customer.submittedAt)}</td>
                 <td>
                     <button class="btn btn-warning btn-sm edit-customer-btn" data-index="${index}">Sửa</button>

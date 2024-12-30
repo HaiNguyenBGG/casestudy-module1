@@ -1,0 +1,40 @@
+#serviceModal .modal-content {
+    background-color: #ffffff; /* Màu nền trắng để dễ đọc */
+    color: #000000; /* Màu chữ đen */
+    border-radius: 8px; /* Bo góc nhẹ để mềm mại */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm bóng mờ nhẹ */
+}
+
+#serviceModal .modal-header {
+    border-bottom: 1px solid #ddd; /* Thêm đường viền dưới */
+}
+
+#serviceModal .modal-title {
+    font-weight: bold;
+    font-size: 1.25rem; /* Kích thước chữ lớn hơn */
+}
+
+#serviceModal .modal-body {
+    font-size: 1rem; /* Kích thước chữ vừa phải */
+    line-height: 1.5; /* Dãn dòng để dễ đọc */
+}
+
+#serviceModal .modal-footer {
+    border-top: 1px solid #ddd; /* Thêm đường viền trên */
+    justify-content: flex-end; /* Canh phải các nút trong footer */
+}
+
+/* Đổi màu chữ các mục trong danh sách dịch vụ */
+.col-md-4 ul.list-unstyled li a {
+    color: #FFD700; /* Màu vàng */
+    text-decoration: none; /* Bỏ gạch chân mặc định */
+    font-weight: bold; /* Chữ đậm */
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Hiệu ứng mượt khi hover */
+}
+
+/* Hiệu ứng hover khi đưa chuột vào */
+.col-md-4 ul.list-unstyled li a:hover {
+    color: #FFA500; /* Đổi màu chữ khi hover (màu cam nhạt) */
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.8); /* Tạo hiệu ứng phát sáng nhẹ */
+    cursor: pointer; /* Hiển thị con trỏ chỉ tay */
+}

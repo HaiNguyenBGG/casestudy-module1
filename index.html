@@ -19,11 +19,15 @@
     <link rel="stylesheet" href="assets/css/leftbottom.css">
     <link rel="stylesheet" href="assets/css/floating.css">
     <link rel="stylesheet" href="assets/css/formcustom.css">
+    <link rel="stylesheet" href="assets/css/notification.css">
 </head>
 
 <body>
     <!-- Floating Icons -->
     <div class="floating-icons">
+        <a class="icon-form" data-bs-toggle="modal" target="_blank" data-bs-target="#customerInfoModal">
+            <img src="assets/images/icons/form.png" alt="Form">
+        </a>
         <a href="https://m.me/caogc" target="_blank" class="icon-messenger">
             <img src="assets/images/icons/messenger.png" alt="Messenger">
         </a>
@@ -103,9 +107,9 @@
                 <div class="col-md-4">
                     <h5>Dịch Vụ</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#">Bảo hành</a></li>
-                        <li><a href="#">Hỗ trợ kỹ thuật</a></li>
-                        <li><a href="#">Tư vấn mua hàng</a></li>
+                        <li><a data-bs-toggle="modal" data-bs-target="#serviceModal">Bảo hành</a></li>
+                        <li><a data-bs-toggle="modal" data-bs-target="#serviceModal">Hỗ trợ kỹ thuật</a></li>
+                        <li><a data-bs-toggle="modal" data-bs-target="#serviceModal">Tư vấn mua hàng</a></li>
                     </ul>
                 </div>
                 <!-- Social Media -->
@@ -121,7 +125,7 @@
                         <img src="assets/images/icons/instagram.jpg" alt="Instagram" width="24">
                     </a>
                     <div class="audio-player mt-2">
-                        <audio controls autoplay loop>
+                        <audio controls loop>
                             <source src="assets/audio/tet.mp3" type="audio/mpeg">
                         </audio>
                     </div>
@@ -131,51 +135,70 @@
             <p class="text-center">© 2024 CAOGIACAY.VN. All Rights Reserved.</p>
         </div>
     </footer>
-
-    <!-- Modal Tư Vấn Khách Hàng -->
-    <div class="modal fade" id="customerInfoModal" tabindex="-1" aria-labelledby="customerInfoModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="customerInfoModalLabel">Vui lòng điền thông tin tư vấn</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="customer-info-form">
-                    <div class="mb-3">
-                        <label for="customer-name" class="form-label">Họ tên</label>
-                        <input type="text" class="form-control" id="customer-name" placeholder="Nhập họ tên" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="customer-address" class="form-label">Địa chỉ</label>
-                        <input type="text" class="form-control" id="customer-address" placeholder="Nhập địa chỉ" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="customer-phone" class="form-label">Số điện thoại</label>
-                        <input type="text" class="form-control" id="customer-phone" placeholder="Nhập số điện thoại"
-                            required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="customer-product" class="form-label">Sản phẩm tham khảo</label>
-                        <select class="form-select" id="customer-product" required>
-                            <option value="" disabled selected>Chọn sản phẩm...</option>
-                            <option value="Xe KIA Morning">Xe KIA Morning</option>
-                            <option value="Xe KIA Soluto">Xe KIA Soluto</option>
-                            <option value="Xe KIA Sonet">Xe KIA Sonet</option>
-                            <option value="Xe KIA K3">Xe KIA K3</option>
-                            <option value="Xe KIA K5">Xe KIA K5</option>
-                            <option value="Xe KIA Seltos">Xe KIA Seltos</option>
-                            <option value="Xe KIA Sorento">Xe KIA Sorento</option>
-                            <option value="Xe KIA Carnival">Xe KIA Carnival</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Gửi thông tin</button>
-                </form>
+    <!-- Modal thông báo -->
+    <div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="serviceModalLabel">Thông Báo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="serviceMessage"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+    <!-- Modal Tư Vấn Khách Hàng -->
+    <div class="modal fade" id="customerInfoModal" tabindex="-1" aria-labelledby="customerInfoModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="customerInfoModalLabel">Vui lòng điền thông tin tư vấn</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="customer-info-form">
+                        <div class="mb-3">
+                            <label for="customer-name" class="form-label">Họ tên</label>
+                            <input type="text" class="form-control" id="customer-name" placeholder="Nhập họ tên"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="customer-address" class="form-label">Địa chỉ</label>
+                            <input type="text" class="form-control" id="customer-address" placeholder="Nhập địa chỉ"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="customer-phone" class="form-label">Số điện thoại</label>
+                            <input type="text" class="form-control" id="customer-phone" placeholder="Nhập số điện thoại"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="customer-product" class="form-label">Sản phẩm tham khảo</label>
+                            <select class="form-select" id="customer-product" required>
+                                <option value="" disabled selected>Chọn sản phẩm...</option>
+                                <option value="Xe KIA Morning">Xe KIA Morning</option>
+                                <option value="Xe KIA Soluto">Xe KIA Soluto</option>
+                                <option value="Xe KIA Sonet">Xe KIA Sonet</option>
+                                <option value="Xe KIA K3">Xe KIA K3</option>
+                                <option value="Xe KIA K5">Xe KIA K5</option>
+                                <option value="Xe KIA Seltos">Xe KIA Seltos</option>
+                                <option value="Xe KIA Sorento">Xe KIA Sorento</option>
+                                <option value="Xe KIA Carnival">Xe KIA Carnival</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Gửi thông tin</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <canvas id="snowCanvas"></canvas>
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -190,19 +213,21 @@
     <script src="assets/js/clickLeft.js"></script>
     <script src="assets/js/snow.js"></script>
     <script src="assets/js/tooltip.js"></script>
+    <script src="assets/js/notification.js"></script>
 </body>
 <script>
-function checkLocalStorageUsage() {
-    let total = 0;
-    for (let key in localStorage) {
-        if (localStorage.hasOwnProperty(key)) {
-            total += ((localStorage[key].length + key.length) * 2); // Tính toán dung lượng (ký tự Unicode 2 byte)
+    function checkLocalStorageUsage() {
+        let total = 0;
+        for (let key in localStorage) {
+            if (localStorage.hasOwnProperty(key)) {
+                total += ((localStorage[key].length + key.length) * 2); // Tính toán dung lượng (ký tự Unicode 2 byte)
+            }
         }
+        console.log(`Dung lượng đã sử dụng: ${(total / 1024).toFixed(2)} KB`);
+        console.log("Dung lượng tối đa (thông thường): 5 MB (tuỳ thuộc vào trình duyệt)");
     }
-    console.log(`Dung lượng đã sử dụng: ${(total / 1024).toFixed(2)} KB`);
-    console.log("Dung lượng tối đa (thông thường): 5 MB (tuỳ thuộc vào trình duyệt)");
-}
 
-checkLocalStorageUsage();
+    checkLocalStorageUsage();
 </script>
+
 </html>
