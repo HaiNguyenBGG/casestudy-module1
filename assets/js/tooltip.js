@@ -72,4 +72,3 @@ function initializeTooltips() {
         new bootstrap.Tooltip(card);
     });
 }
-

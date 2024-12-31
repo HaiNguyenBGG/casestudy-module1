@@ -128,6 +128,8 @@ body {
     border-right: 1px solid #333;
     overflow-y: hidden;
     /* Cuộn dọc nếu danh mục dài */
+    border-radius: 8px;
+    margin-left: 20px;
 }
 
 .sidebar h4 {
@@ -181,7 +183,7 @@ body {
     /* Nền tối cho card */
     color: rgb(0, 0, 0);
     /* Chữ trắng */
-    gap: 20px;
+    margin: 10px;
 }
 
 .car-models .card:hover {
@@ -190,12 +192,11 @@ body {
 
 .car-models .card-img-top {
     object-fit: cover;
-    height: 150px;
+    height: 50px;
 }
 
 .car-models .card-body {
     text-align: center;
-    gap: 10px;
 }
 
 .car-models .card img {

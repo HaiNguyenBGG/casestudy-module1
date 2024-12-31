@@ -27,7 +27,7 @@ function displayPaginatedCars(carData, modelsContainerId, itemsPerPage = 6, curr
 
     // Tạo container "row" để sắp xếp các card theo hàng ngang
     const row = document.createElement('div');
-    row.classList.add('row', 'gy-6');
+    row.classList.add('row', 'gy-2');
 
     // Tính toán các chỉ số để phân trang
     const allVariants = carData.flatMap(car => car.variants.map(variant => ({
